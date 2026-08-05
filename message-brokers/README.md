@@ -150,8 +150,6 @@ These are separate moments, with separate failure possibilities.
 
 That distinction is basically the foundation of reliable RabbitMQ applications.
 
-
-
 ### Prefetch controls how many messages can become unacked
 
 Without sensible prefetch, RabbitMQ might give one consumer many messages before it finishes processing them.
@@ -183,9 +181,9 @@ So the mental model is:
 
 > Delivery temporarily leases the message to a consumer. ACK permanently completes it. Losing the consumer or timing out revokes the lease and makes the message available again.
 
+
+
 ## Key entities in RabbitMQ
-
-
 
 - Publisher
 - Exchange
@@ -257,4 +255,6 @@ The exact matching behavior depends on the exchange type:
 ## Experiments
 
 1. One queue, one sender, one receiver. Send and receive messages.
-
+2. One sender, one queue, multiple consumers.
+3. Add an exchange, multiple queues, multiple consumers
+4. Add routing keys, binding keys, exchange types
